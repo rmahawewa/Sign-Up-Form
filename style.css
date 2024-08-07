@@ -1,0 +1,36 @@
+.container{
+    height: 948px;
+    width: 600px;
+    display: flex;
+}
+
+.img-div{
+    background-image : url("./images/green.jpg");
+    background-size: cover;
+    width: max-content;
+    height: 100%;
+}
+
+.logo-text{
+    color: white;
+}
+
+.logo-div{    
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    font-size: 4rem;
+    align-items: center;
+    margin-top: 12rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+img{
+    width: 5rem;
+}
+
+.content-div{
+    padding-left:3rem;
+}
