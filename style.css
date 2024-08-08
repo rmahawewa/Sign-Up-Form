@@ -1,7 +1,16 @@
+body{
+    background-color:rgba(24,37,2,0.9);
+}
+
+
 .container{
-    height: 948px;
-    width: 600px;
+    height: 950px;
+    width: 1350px;
     display: flex;
+    margin-left: 13%;
+    margin-right: 14%;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .img-div{
@@ -13,10 +22,11 @@
 
 .logo-text{
     color: white;
+    font-size: 4rem;
 }
 
 .logo-div{    
-    background: rgba(0,0,0,0.5);
+    background: rgba(60,92,5,0.5);
     display: flex;
     font-size: 4rem;
     align-items: center;
@@ -32,5 +42,80 @@ img{
 }
 
 .content-div{
+    /* padding-left:3rem;
+    padding-right: 5rem; */
+    position: relative;
+    width: -webkit-fill-available;
+}
+
+p{
     padding-left:3rem;
+    padding-right: 5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.content-one{
+    height:35%;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.paragraph-div{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.content-two{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.row-one,.row-two,.row-three{
+    display: flex;
+    padding-left: 3rem;
+    padding-bottom: 1.5rem;
+}
+
+.inc{
+    display: flex;
+    flex-direction: column;
+    padding-right: 5rem;
+}
+
+label{
+    font-size: x-small;
+    padding-bottom: 0.1rem;
+    font-weight: 600;
+}
+
+input{
+    width: 14rem;
+    height: 1.5rem;
+    border-radius: 5px;
+}
+
+.content-three{
+    padding-left: 3rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+button{
+    background-color: #596D48;
+    color: white;
+    height: 2.5rem;
+    font-size: 1rem;
+    border-radius: 7px;
+    font-weight: bolder;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border: 0px;
+    box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.05);
 }
