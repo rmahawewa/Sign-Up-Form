@@ -69,7 +69,8 @@
         let passcode1 = document.getElementById("pw1");
         let passcode2 = document.getElementById("pw2");
 
-        // input_elem.addEventListener("focus", onfocusin);
+        input_elem.addEventListener("focus", onfocusin);
+        input_elem.addEventListener("focusout", onfocusout);
         passcode1.addEventListener("focusout", validate_password);
         passcode2.addEventListener("focusout", validate_password);
 
@@ -86,10 +87,15 @@
             }
         }
 
-        // function onfocusin(){
-        //     input_elem.style.border = "1px solid blue";
-        //     input_elem.style.boxShadow = "5px 5px 2px 1px rgba(0, 0, 0, 0.05)";
-        // }
+        function onfocusin(){
+            input_elem.style.borderColor = "blue";
+            input_elem.style.boxShadow = "5px 5px 2px 1px rgba(0, 0, 0, 0.05)";
+        }
+
+        function onfocusout(){
+            input_elem.style.borderColor = "#E5E7EB";
+            input_elem.style.boxShadow = "";
+        }
     </script>
 </body>
 </html>

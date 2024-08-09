@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'rubikblack';
+    src: url('./rubik-font/rubik-black-webfont.woff2') format('woff2'),
+         url('./rubik-font/rubik-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body{
     background-color:rgba(24,37,2,0.9);
 }
@@ -23,6 +32,8 @@ body{
 .logo-text{
     color: white;
     font-size: 4rem;
+    font-family: rubikblack;
+    letter-spacing: 0.3rem;
 }
 
 .logo-div{    
@@ -138,8 +149,8 @@ a{
     text-decoration: none;
 }
 
-input:focusin{
-    border: 1px solid blue;
+input:focus{
+    border-color: blue;
     box-shadow: 5px 5px 2px 1px rgba(0, 0, 0, 0.05);
 }
 
