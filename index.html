@@ -47,20 +47,49 @@
                     <div class="row-three">
                         <div class="inc">
                             <label for="password">PASSWORD</label>
-                            <input type="password" name="password">
+                            <input type="password" id="pw1" name="password">
+                            <label id="password-alert"></label>
                         </div>
                         <div class="inc">
                             <label for="passwordcheck">CONFIRM PASSWORD</label>
-                            <input type="password" name="passwordcheck">
+                            <input type="password" id="pw2" name="passwordcheck">
                         </div>
                     </div>
                 </div>
                 <div class="content-three">
                     <button>Create Account</button>                   
                 </form>
-                    <p class="signup"></p>
+                    <p class="signup">Already have an account? <a href="#">Log in</a></p>
                 </div>
         </div>
     </div>
+
+    <script>
+        let input_elem = document.querySelector("input");
+        let passcode1 = document.getElementById("pw1");
+        let passcode2 = document.getElementById("pw2");
+
+        // input_elem.addEventListener("focus", onfocusin);
+        passcode1.addEventListener("focusout", validate_password);
+        passcode2.addEventListener("focusout", validate_password);
+
+        function validate_password(){
+            if(passcode1.value.toString().localeCompare(passcode2.value.toString()) !== 0){
+                document.getElementById("password-alert").innerText="* Passwords do not match";
+                passcode1.style.border = "1px solid red";
+                passcode2.style.border = "1px solid red";
+
+            }else{
+                document.getElementById("password-alert").innerText="";
+                passcode1.style.border = "1px solid #E5E7EB";
+                passcode2.style.border = "1px solid #E5E7EB";
+            }
+        }
+
+        // function onfocusin(){
+        //     input_elem.style.border = "1px solid blue";
+        //     input_elem.style.boxShadow = "5px 5px 2px 1px rgba(0, 0, 0, 0.05)";
+        // }
+    </script>
 </body>
 </html>
