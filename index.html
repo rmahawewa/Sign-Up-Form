@@ -30,21 +30,21 @@
                     <div class="row-one">
                         <div class="inc">
                             <label for="firstname">FIRST NAME</label>
-                            <input type="text" id="firstname" name="firstname" required>
+                            <input type="text" id="firstname" name="firstname">
                         </div>
                         <div class="inc">
                             <label for="lastnmae">LAST NAME</label>
-                            <input type="text" id="lastnmae" name="lastname" required>
+                            <input type="text" id="lastnmae" name="lastname">
                         </div>
                     </div>
                     <div class="row-two">
                         <div class="inc">
                             <label for="email">EMAIL</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email">
                         </div>
                         <div class="inc">
                             <label for="phonenumber">PHONE NUMBER</label>
-                            <input type="tel" id="phonenumber" name="phonenumber" pattern="(\+?\s*(\d\s*){7,15})" required>
+                            <input type="tel" id="phonenumber" name="phonenumber" pattern="(\+?\s*(\d\s*){7,15})">
                         </div>
                     </div>
                     <div class="row-three">
@@ -68,18 +68,41 @@
     </div>
 
     <script>
-        document.getElementById('frm').addEventListener('submit', function(e){
+        document.getElementById('frm').addEventListener('submit', function(e){           
+
+            //input values
+            let firstname = document.querySelector("#firstname").value;
+            let lastname = document.querySelector("#lastnmae").value;
+            let email = document.querySelector("#email").value;
+            let phonenumber = document.querySelector("#phonenumber").value;
             let passwd = document.querySelector("#pw1").value;
             let re_passwd = document.querySelector("#pw2").value;
-            if(passwd.localeCompare(re_passwd) != 0){    
-                e.preventDefault();            
-                err_msg.innerText = "Password mismatch";
+
+            //password alert label
+            let err_msg = document.querySelector("#password-alert");
+
+            //regular expressions
+            const name_match = /^[A-Z][a-zA-Z '.-]*[A-Za-z][^-]$/;
+            const email_match = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const phonenumber_match = /(\+?\s*(\d\s*){7,15})/;
+            const password_match = /([a-zA-Z0-9@#$_]{8,10})/;
+
+            console.log(password_match.test(passwd));
+
+            //check if user entered valid inputs
+            if(name_match.test(firstname) && name_match.test(lastname) && email_match.test(email) && phonenumber_match.test(phonenumber) && password_match.test(passwd)){
+                //check if password matches with confirm password
+                if(passwd.localeCompare(re_passwd) != 0){    
+                    e.preventDefault();           
+                    err_msg.innerText = "Password mismatch";
+                    return false;
+                }else{
+                    return true;
+                }
                 return false;
-            }else{ 
-                err_msg.innerText = "numbers, letters and @, #, $, _ length of 8-10";
-                // document.getElementById("frm").submit();
-                return true;
-            }
+            }else{
+                e.preventDefault(); 
+            }           
         })
     </script>
 
