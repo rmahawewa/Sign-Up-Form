@@ -192,3 +192,7 @@ input:invalid{
     padding-top: 0.3rem;
     font-weight: 100;
 }
+
+#form-submit-success-msg{
+    padding: 1rem;
+}

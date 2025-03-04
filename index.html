@@ -26,41 +26,41 @@
             </div>
             <div class="content-two">
                 <p>Let's do this!</p>
-                <form method="post" action="#">
+                <form method="post" action="after_submit.html" id="frm">
                     <div class="row-one">
                         <div class="inc">
                             <label for="firstname">FIRST NAME</label>
-                            <input type="text" name="firstname">
+                            <input type="text" id="firstname" name="firstname" required>
                         </div>
                         <div class="inc">
                             <label for="lastnmae">LAST NAME</label>
-                            <input type="text" name="lastname">
+                            <input type="text" id="lastnmae" name="lastname" required>
                         </div>
                     </div>
                     <div class="row-two">
                         <div class="inc">
                             <label for="email">EMAIL</label>
-                            <input type="email" name="email">
+                            <input type="email" id="email" name="email" required>
                         </div>
                         <div class="inc">
                             <label for="phonenumber">PHONE NUMBER</label>
-                            <input type="tel" name="phonenumber">
+                            <input type="tel" id="phonenumber" name="phonenumber" pattern="(\+?\s*(\d\s*){7,15})" required>
                         </div>
                     </div>
                     <div class="row-three">
                         <div class="inc">
-                            <label for="password">PASSWORD</label>
-                            <input type="password" id="pw1" name="password">
-                            <label id="password-alert"></label>
+                            <label for="pw1">PASSWORD</label>
+                            <input type="password" id="pw1" name="password" pattern="([a-zA-Z0-9@#$_]{8,10})" required>
+                            <label id="password-alert">numbers, letters and @, #, $, _ length of 8-10</label>
                         </div>
                         <div class="inc">
-                            <label for="passwordcheck">CONFIRM PASSWORD</label>
-                            <input type="password" id="pw2" name="passwordcheck">
+                            <label for="pw2">CONFIRM PASSWORD</label>
+                            <input type="password" id="pw2" name="passwordcheck" required>
                         </div>
                     </div>
                 </div>
                 <div class="content-three">
-                    <button>Create Account</button>                   
+                    <button type="submit" id="btn-submit">Create Account</button>                   
                 </form>
                     <p class="signup">Already have an account? <a href="#">Log in</a></p>
                 </div>
@@ -68,28 +68,20 @@
     </div>
 
     <script>
-        let input_elem = document.querySelector("input");
-        let passcode1 = document.getElementById("pw1");
-        let passcode2 = document.getElementById("pw2");
-
-        input_elem.addEventListener("focus", onfocusin);
-        input_elem.addEventListener("focusout", onfocusout);
-        passcode1.addEventListener("focusout", validate_password);
-        passcode2.addEventListener("focusout", validate_password);
-
-        function validate_password(){
-            if(passcode1.value.toString().localeCompare(passcode2.value.toString()) !== 0){
-                document.getElementById("password-alert").innerText="* Passwords do not match";
-                passcode1.style.border = "1px solid red";
-                passcode2.style.border = "1px solid red";
-
-            }else{
-                document.getElementById("password-alert").innerText="";
-                passcode1.style.border = "1px solid #E5E7EB";
-                passcode2.style.border = "1px solid #E5E7EB";
+        document.getElementById('frm').addEventListener('submit', function(e){
+            let passwd = document.querySelector("#pw1").value;
+            let re_passwd = document.querySelector("#pw2").value;
+            if(passwd.localeCompare(re_passwd) != 0){    
+                e.preventDefault();            
+                err_msg.innerText = "Password mismatch";
+                return false;
+            }else{ 
+                err_msg.innerText = "numbers, letters and @, #, $, _ length of 8-10";
+                // document.getElementById("frm").submit();
+                return true;
             }
-        }
-
+        })
     </script>
+
 </body>
 </html>
