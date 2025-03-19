@@ -30,17 +30,17 @@
                     <div class="row-one">
                         <div class="inc">
                             <label for="firstname">FIRST NAME</label>
-                            <input type="text" id="firstname" name="firstname">
+                            <input type="text" id="firstname" name="firstname" pattern="([A-Z][a-zA-Z '.-]*[A-Za-z][^-])">
                         </div>
                         <div class="inc">
                             <label for="lastnmae">LAST NAME</label>
-                            <input type="text" id="lastnmae" name="lastname">
+                            <input type="text" id="lastnmae" name="lastname" pattern="([A-Z][a-zA-Z '.-]*[A-Za-z][^-])">
                         </div>
                     </div>
                     <div class="row-two">
                         <div class="inc">
                             <label for="email">EMAIL</label>
-                            <input type="email" id="email" name="email">
+                            <input type="email" id="email" name="email" pattern="([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})">
                         </div>
                         <div class="inc">
                             <label for="phonenumber">PHONE NUMBER</label>
@@ -51,7 +51,7 @@
                         <div class="inc">
                             <label for="pw1">PASSWORD</label>
                             <input type="password" id="pw1" name="password" pattern="([a-zA-Z0-9@#$_]{8,10})" required>
-                            <label id="password-alert">numbers, letters and @, #, $, _ length of 8-10</label>
+                            <label id="password-alert">numbers, letters or @, #, $, _ length of 8-10</label>
                         </div>
                         <div class="inc">
                             <label for="pw2">CONFIRM PASSWORD</label>
@@ -84,8 +84,8 @@
             //regular expressions
             const name_match = /^[A-Z][a-zA-Z '.-]*[A-Za-z][^-]$/;
             const email_match = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            const phonenumber_match = /(\+?\s*(\d\s*){7,15})/;
-            const password_match = /([a-zA-Z0-9@#$_]{8,10})/;
+            const phonenumber_match = /^(\+?\s*(\d\s*){7,15})$/;
+            const password_match = /^([a-zA-Z0-9@#$_]{8,10})$/;
 
             console.log(password_match.test(passwd));
 
