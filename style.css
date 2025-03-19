@@ -186,6 +186,10 @@ input:invalid{
     border: 1px solid red;
 }
 
+.invalid{
+    border: 1px solid red;
+}
+
 #password-alert{
     color: red;
     font-size: 0.7rem;
